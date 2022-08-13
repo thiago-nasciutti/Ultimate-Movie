@@ -13,7 +13,7 @@ function search(){
             document.getElementById("plot").innerHTML = plot
             let poster = data.Poster
 
-            
+            //Poster
             document.getElementById("poster").src = poster
         })
 
