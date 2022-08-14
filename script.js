@@ -1,3 +1,4 @@
+//Main Function
 function search(){
     let title = document.getElementById("movieInput").value
   
@@ -8,6 +9,7 @@ function search(){
         .then(function(response){
             return response.json()
         })
+
         .then(function(data){
             
             //Plot
@@ -27,17 +29,17 @@ function search(){
 
             //Get url 2 to access IMDb-API
             let url2 = "https://imdb-api.com/en/API/Ratings/k_vnngt5ar/"+imdbID
+                
                 fetch(url2)
-                .then(function(response){
+                    .then(function(response){
                     return response.json()
-                })
-                .then(function(data){
-        
+                    })
+
+                    .then(function(data){
+
                     //Rotten Tomatoes
                     let rotten= data.rottenTomatoes
                     document.getElementById("rotten").innerHTML = "Rotten Tomatoes: "+ rotten + "%"
-                })
+                    })
         })
-           
-
 }
