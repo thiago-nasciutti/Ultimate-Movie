@@ -54,7 +54,6 @@ function loadMovieDetails() {
             showMovieDetails(res);
             //pass movie ID from Omdbapi API for IMDb-API
             showRottenTomatoes(movie.dataset.id)
-            showTrailer(movie.dataset.id)
         });
     });
 }
@@ -124,8 +123,8 @@ function showRottenTomatoes(movieID) {
             else {
                 rottenTomatoesRating.style.backgroundColor = 'green'
             }
-
         })
+        .catch(error => { error })
 };
 
 /*var movieList =[]
