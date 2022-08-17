@@ -1,84 +1,90 @@
 <!DOCTYPE html>
 <html lang="en">
 
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32.png">
-    <link rel="stylesheet" href="assets/css/stylesheet.css">
-    <title>Search Your Movies</title>
-</head>
+<!-- Head -->
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32.png">
+        <!-- CSS Link -->
+        <link rel="stylesheet" href="assets/css/style.css">
+        <!-- Title -->
+        <title>Search Your Movies</title>
+    </head>
 
-<body>
-    <section class="hero" id="section1">
-        <div class="sign" id="intro">
-            <h1 id="intro-text-1">It's <span id="letter-m">M</span><span id="letter-o">o</span><span
-                    id="letter-v">v</span><span id="letter-i">i</span><span id="letter-e">e</span> Night!
-            </h1><br><br><br>
-            <h1 id="intro-text-2">Click below to search <span id="letter-m">M</span><span id="letter-o">o</span><span
-                    id="letter-v">v</span><span id="letter-i">i</span><span id="letter-e">e</span><span
-                    id="letter-s">s</span>
-            </h1>
-        </div>
-        <div class="arrow">
-            <a href="#section2">
-                <div class=" arrow-el" id="arrow-one"></div>
-                <div class=" arrow-el" id="arrow-one"></div>
-                <div class="arrow-el" id="arrow-one"></div>
-            </a>
-        </div>
-    </section>
+<!-- Body -->
+    <body>
+        <!-- Section 1: Hero (Signs + Arrows)-->
+        <section class="hero" id="section1">
+            <div class="sign" id="intro">
+                <!-- Animated Sign: It's Movie Night -->
+                <h1 id="intro-text-1">It's <span id="letter-m">M</span><span id="letter-o">o</span><span
+                        id="letter-v">v</span><span id="letter-i">i</span><span id="letter-e">e</span> Night!
+                </h1><br><br><br>
+                <!-- Animated Sign: Click below to search Movie -->
+                <h1 id="intro-text-2">Click below to search <span id="letter-m">M</span><span id="letter-o">o</span><span
+                        id="letter-v">v</span><span id="letter-i">i</span><span id="letter-e">e</span><span
+                        id="letter-s">s</span>
+                </h1>
+            </div>
+            <!-- Animated Arrows -->
+            <div class="arrow">
+                <a href="#section2">
+                    <div class=" arrow-el" id="arrow-one"></div>
+                    <div class=" arrow-el" id="arrow-one"></div>
+                    <div class="arrow-el" id="arrow-one"></div>
+                </a>
+            </div>
+        </section>
 
-    <section class="search-page" id="section2">
-        <div class="wrapper">
-            <div class="search-container">
-                <div class="search-element">
-                    <div class="logo"><span id="letter-m">M</span><span id="letter-o">o</span><span
-                            id="letter-v">v</span><span id="letter-i">i</span><span id="letter-e">e</span><span
-                            id="letter-s">s</span></div>
-                    <div>
-                        <input type="text" class="search-input" id="search-input" placeholder="Search Movie Title ..."
-                            id="movie-search-box" onkeyup="movieSearchProgress()" onclick="movieSearchProgress()">
-                    </div>
+        <!-- Section 2: Search & Results -->
+        <section class="search-page" id="section2">
+            <div class="wrapper">
+                <div class="search-container">
+                    <div class="search-element">
+                        <!-- Animated Logo Sign: Movies -->
+                        <div class="logo"><span id="letter-m">M</span><span id="letter-o">o</span><span
+                                id="letter-v">v</span><span id="letter-i">i</span><span id="letter-e">e</span><span
+                                id="letter-s">s</span></div>
+                        <!-- Search Input -->
+                        <div>
+                            <input type="text" class="search-input" id="search-input" placeholder="Search Movie Title ..."
+                                id="movie-search-box" onkeyup="movieSearchProgress()" onclick="movieSearchProgress()">
+                        </div>
 
-                    <!--Search List-->
-                    <div class="search-list" id="search-list">
-                        <div class="search-list-item" style="display:none">
-                            <div class="search-item-thumbnail">
-                                <img id="thumbnail" src="images/dreamstime_xs_95500226.jpg">
-                            </div>
-                            <div class="search-item-info">
-                                <h3 class="search-item-title"></h3>
-                                <p lass="search-item-year"></p>
-                            </div>
+                        <!-- Search Lis t-->
+                        <div class="search-list" id="search-list">
+                            <div class="search-list-item" style="display:none"></div>
                         </div>
                     </div>
                 </div>
-            </div>
 
-            <div class="container">
-                <div class="result-container" id="result" style="display:none">
-                    <img src=" images/dreamstime_xs_95500226.jpg" class="movie-poster">
-                    <div class="movie-info">
-                        <h3 class="movie-title">Testing</h3>
-                        <p class="year">Testing</p>
-                        <p class="director">Testing</p>
-                        <p class="genre"><b></b>Testing</p>
-                        <p class="writer"><b></b>Testing</p>
-                        <p class="actors"><b></b>Testing</p>
-                        <p class="awards"><b></b>Testing</p>
-                        <p class="language"><b></b>Testing</p>
-                        <p class="rotten-tomatoes">Rotten Tomatoes:&nbsp<span class="rotten-tomatoes-rating"></span>
-                        </p>
-                        <br>
-                        <p class="plot" id="plot"><b></b>Testing</p>
-                    </div>
-            </div>
-    </section>
+                <!-- Show Movie Details -->
+                <div class="container">
+                    <div class="result-container" id="result" style="display:none">
+                        <img class="movie-poster">
+                        <div class="movie-info">
+                            <h3 class="movie-title"></h3>
+                            <p class="year"></p>
+                            <p class="director"></p>
+                            <p class="genre"><b></b></p>
+                            <p class="writer"><b></b></p>
+                            <p class="actors"><b></b></p>
+                            <p class="awards"><b></b></p>
+                            <p class="language"><b></b></p>
+                            <p class="rotten-tomatoes">Rotten Tomatoes:&nbsp<span class="rotten-tomatoes-rating"></span></p>
+                            <br>
+                            <p class="plot" id="plot"><b></b></p>
+                        </div>
+                </div>
+        </section>
 
-    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
-    <script src="assets/js/script.js"></script>
-</body>
+        <!-- Axios CDN -->
+        <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+
+        <!-- JS Source -->
+        <script src="assets/js/script.js"></script>
+    </body>
 
 </html>
