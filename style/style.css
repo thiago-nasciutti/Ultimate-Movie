@@ -1,69 +1,414 @@
-.masthead {
-    background-size: cover;
-    min-height: 100vh;
-    position: relative;
-    color:white;
-    text-shadow:2px 2px 2px rgba(0,0,0,.2);
-    
-}
-.color-overlay{
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0,0,0,.2);
-}
+@import url('https://fonts.googleapis.com/css2?family=Bungee+Outline&display=swap');
+/* @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@500&display=swap'); */
+@import url('https://fonts.googleapis.com/css2?family=Exo:wght@200&display=swap');
 
-
-
-  body,html{
-    height: 100%;
-    width: 100%;
+* {
+    box-sizing: border-box;
     margin: 0;
     padding: 0;
-    
-    }
+}    
 
-    .searchbar{
-    margin-bottom: auto;
-    margin-top: auto;
-    height: 60px;
-    background-color: #dc0c0cea;
-    border-radius: 30px;
-    padding: 10px;
-    }
+:root {
+    --search-font: 'Exo', sans-serif;
+    --neon-font: 'Bungee Outline', cursive;
+}
 
-    .search_input{
-    color: white;
-    border: 0;
-    outline: 0;
-    background: none;
-    width: 0;
-    caret-color:transparent;
-    line-height: 40px;
-    transition: width 0.4s linear;
-    }
+body {
+    background-color: black;
+}
 
-    .searchbar:hover > .search_input{
-    padding: 0 10px;
-    width: 450px;
-    caret-color:red;
-    transition: width 0.4s linear;
-    }
+html {
+    scroll-behavior: smooth;
+}
 
-    .searchbar:hover > .search_icon{
-    background: white;
-    color: #e74c3c;
-    }
-
-    .search_icon{
-    height: 40px;
-    width: 40px;
-    float: right;
+.hero {
+    position: relative;
+    height: 100vh;
+    width: 100vw;
     display: flex;
-    justify-content: center;
+    flex-direction: column;
     align-items: center;
-    border-radius: 50%;
-    color:white;
-    text-decoration:none;
+    justify-content: center;
+    background-image: linear-gradient(rgba(12, 2, 2, 0.863), rgba(8, 5, 5, 0.6)),url(images/dreamstime_m_ok.jpg);
+    background-position: center;
+    background-size: 100% 100%;
+}
+
+.sign {
+    max-width: 100%;
+    width: 100%;
+    margin: auto;
+    height: 30vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+#intro-text-1, #intro-text-2 {
+    font-family: 'Bungee Outline', cursive;
+    font-size: 50px;
+    color: rgb(231, 231, 231);
+    letter-spacing: 2px;
+    word-spacing: 2px;
+}
+
+#intro-text-2 {
+    font-size: 65px;
+    animation: flicker 6s infinite, shine 8s infinite, blink 2s infinite;
+}
+
+.arrow {
+    position: absolute;
+    height: 30px;
+    width: 30px;
+    display: block;
+    transform: translateY(120px);
+}
+
+.arrow-el {
+    width: 30px;
+    height: 30px;
+    border-bottom: 3px solid rgb(253, 253, 253);
+    border-right: 3px solid red;
+    /* border: 3px solid red; */
+    transform: rotate(45deg);
+    margin: -10px;
+    animation: scroll 1.5s infinite;
+}
+
+
+/* section 2 */
+
+/* .search-page {
+    background-image: linear-gradient( rgba(0, 0, 0, 0.46), rgba(0, 0, 0, 0.46) ),url(background.png);
+    filter: grayscale(100%);
+} */
+
+img {
+    width: 100%;
+    display: block;
+}
+
+.wrapper {
+    min-height: 100vh;
+    background-color: rgb(179, 3, 3);
+    background-image: linear-gradient( rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6) ),url("images/background.png");
+    /* filter: grayscale(20%); */
+    /* filter: blur(8px); */
+}
+
+.search-container {
+    background-color: rgb(8, 1, 1);
+    height: 100px;
+    display: flex;
+    align-items: center; 
+    justify-content: center;
+}
+
+.search-element {
+    display: flex;
+    /* align-items: stretch; */
+    align-items: flex-start;
+    justify-content: center;
+    flex-direction: column;
+    position: relative;
+}
+
+
+.logo {
+    display: block;
+    transform: translateX(-600px);
+    /* transform: translateY(20px); */
+    font-size: 40px;
+    margin-top: 50px;
+    font-family: var(--neon-font);
+    font-weight: bolder;
+    animation: flicker 6s infinite, shine 8s infinite, blink 2s infinite;
+}
+
+.search-element .search-input {
+    padding: 1rem 2rem;
+    font-size: 20px;
+    border: none;
+    outline: none;
+    color: black;
+    width: 350px;
+    font-family: var(--search-font);
+}
+
+.search-item-info p{
+    font-family: var(--search-font);
+    font-size: 15px;
+}
+
+#search-input {
+    border-radius: 5px;
+}
+
+.search-list {
+    position: absolute;
+    right: 100;
+    top: 100%;
+    max-height: 500px;
+    overflow-y: scroll;
+    z-index:10;
+}
+
+.search-item-info h3 {
+    font-weight: 500;
+    font-family: var(--search-font);
+    font-size: 20px;
+    color:rgb(255, 115, 0);
+}
+
+.search-list .search-list-item {
+    background-color: rgb(19, 13, 13);
+    padding: 0.5rem;
+    border-bottom: 1px solid rgb(160, 133, 133);
+    width: calc(350px - 8px);
+    color:rgb(231, 231, 231);
+    cursor: pointer;
+    transition: background-color 200ms ease;
+}
+
+.search-list-item {
+    display: flex;
+    align-items: center;
+}
+
+.search-item-thumbnail img {
+    width: 40px;
+    margin-right: 1rem;
+}
+
+.search-list::-webkit-scrollbar{
+    width: 8px;
+}
+
+.search-list::-webkit-scrollbar-track{
+    box-shadow: inset 0 0 6px rgba(27, 25, 25, 0.3);
+}
+
+.search-list::-webkit-scrollbar-thumb {
+    background-color: rgb(140, 0, 255);
+    outline: none;
+    border-radius: 10px;
+}
+
+/* movie result */
+.result-container {
+    padding: 3rem 0;
+}
+
+.result {
+    display: flex;
+    max-width: 1000px;
+    max-height: 1000px;
+    margin-left: auto;
+    margin-right: auto;
+    background-color: #130707;
+    opacity: 1;
+    transform: translateY(120px);
+    /* display: none; */
+}
+
+.movie-poster img {
+    max-width: 400px;
+}
+
+.movie-info {
+    max-width: 800px;
+    margin-left: 30px;
+}
+
+.movie-title{
+    font-size: 25px;
+    color: rgb(235, 125, 0);
+    font-family: var(--search-font);
+}
+
+.year, .rated, .released, .genre, .writer, .actors, .plot, .language {
+    font-size: 20px;
+    font-family: var(--search-font);
+}
+
+
+.movie-poster {
+    margin-left: 30px;
+}
+
+.movie-poster img {
+    max-width: 300px;
+    margin: 0 auto;
+    border: 4px solid white;
+}
+
+.movie-info {
+    text-align: center;
+    color: rgb(255, 255, 255);
+    padding-top: 3rem;
+}
+
+.more-movie-info {
+    list-style-type: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 1rem;
+}
+
+#letter-m {
+    color: red;
+}
+
+#letter-o {
+    color: rgb(255, 230, 0);
+}
+
+#letter-v {
+    color: rgb(89, 37, 209);
+}
+
+#letter-i {
+    color: rgb(12, 219, 92);
+}
+
+#letter-e {
+    color: rgb(0, 238, 255);
+}
+
+#letter-s {
+    color: rgb(0, 26, 255);
+}
+
+input[type="text"]
+{
+    font-size:20px;
+    letter-spacing: 2.5px;
+}
+
+.hide-list{
+    display: none;
+}
+
+/* .show-result-card {
+    display: flex;
+    max-width: 1000px;
+    max-height: 500px;
+    margin-top: 20px;
+    margin-left: auto;
+    margin-right: auto;
+    background-color: #ff4040;
+    opacity: 1;
+    transform: translateY(120px);
+    font-size: 20px;
+    font-family: var(--search-font);
+} */
+
+@keyframes scroll {
+    0% {
+        opacity: 1;    
+       transform: rotate(45deg) translate(-10px, -10px);
+       
     }
-  
+    50% {
+        opacity: 0.5;
+    }
+
+    100% {
+        opacity: 1;
+        transform: rotate(45deg) translate(10px, 10px);
+    }
+}
+
+@keyframes flicker {
+    from {
+        opacity: 1;
+    }
+    5% {
+        opacity: 0.9;
+    }
+    10% {
+        opacity: 0.85
+    }
+    15% {
+        opacity: 0.95;
+    }
+    20% {
+        opacity: 0.92;
+    }
+    25% {
+        opacity: 0.9;
+    }
+    30% {
+        opacity: 0.85;
+    }
+    35% {
+        opacity: 0.95;
+    }
+    40% {
+        opacity: 0.92;
+    }
+    50% {
+        opacity: 1;
+    }
+    60% {
+        opacity: 0.9;
+    }
+    70% {
+        opacity: 0.8;
+    }
+    80% {
+        opacity: 0.93;
+    }
+    90% {
+        opacity: 0.9
+    }
+    to {
+        opacity: 1;
+    }
+
+}
+
+@keyframes shine {
+    0% {
+      color: #24d83c;
+      text-shadow: none;
+    }
+    25% {
+        color:aqua;
+        text-shadow: 2px 2px #a200ff;
+    }
+    55% {
+        color:rgb(255, 230, 0);
+        text-shadow: 2px 2px #00ff62;
+    }
+
+    65% {
+        color: rgb(255, 115, 0);
+        text-shadow: 2px 2px #0066ff;
+    }
+
+    100% {
+      color: #ff5dff;
+      text-shadow: 2px 2px #ff0000;
+    }
+  }
+
+  @keyframes blink {
+    0%,
+    36%,
+    75% {
+      color: #16cf63;
+      text-shadow: 0 0 8rem #9b52fa;
+    }
+    28%,
+    33% {
+      color: #ff65bd;
+    }
+    82%,
+    97% {
+      color: #ff2483;
+    }
+  }

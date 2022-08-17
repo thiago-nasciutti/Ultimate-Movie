@@ -1,46 +1,85 @@
-function search(){
-    let title = document.getElementById("movieInput").value
-  
-    //Get url 1 to access OMDb-API 
-    let url1 = "https://www.omdbapi.com/?t="+title+"&apikey=db0da826"
-   
-    fetch(url1)
-        .then(function(response){
-            return response.json()
+const searchInput = document.querySelector('.search-input');
+const searchList = document.querySelector('.search-list');
+const searchResult = document.querySelector('.result');
+const apiKey = "eee7f63b";
+
+function movieSearch(movieName) {
+    const queryURL = `https://omdbapi.com/?s=${movieName}&page=1&apikey=${apiKey}`
+    axios.get(queryURL)
+        .then(res => {
+            listMovies(res.data.Search)
         })
+        .catch(error => { error })
+};
 
-        .then(function(data){
-            
-            //Plot
-            let title = data.Title
-            document.getElementById("title").innerHTML = title
+function movieSearchProgress() {
+    let searchTerm = (searchInput.value).trim();
+    if (searchTerm.length > 0) {
+        searchList.classList.remove('hide-list');
+        movieSearch(searchTerm);
+    } else {
+        searchList.classList.add('hide-list');
+    };
+};
 
-            //Plot
-            let plot = data.Plot
-            document.getElementById("plot").innerHTML = plot
+function listMovies(movies) {
+    searchList.innerHTML = "";
+    for (let i = 0; i < movies.length; i++) {
+        let movieListItem = document.createElement('div');
+        movieListItem.dataset.id = movies[i].imdbID;
+        movieListItem.classList.add('search-list-item');
+        if (movies[i].Poster != "N/A")
+            moviePoster = movies[i].Poster;
+        else
+            moviePoster = "image_not_found.png";
 
-            //Poster
-            let poster = data.Poster
-            document.getElementById("poster").src = poster
+        movieListItem.innerHTML = `
+            <div class = "search-item-thumbnail">
+                <img src = "${moviePoster}">
+            </div>
+            <div class = "search-item-info">
+                <h3>${movies[i].Title}</h3>
+                <p>${movies[i].Year}</p>
+            </div>
+            `;
 
-            //imdbID
-            let imdbID = data.imdbID
+        searchList.appendChild(movieListItem);
+    }
+    loadMovieDetails()
+}
 
-            //Get url 2 to access IMDb-API
-            let url2 = "https://imdb-api.com/en/API/Ratings/k_vnngt5ar/"+imdbID
-                
-                fetch(url2)
-                    .then(function(response){
-                    return response.json()
-                    })
+function loadMovieDetails() {
+    const searchListMovies = searchList.querySelectorAll('.search-list-item');
+    searchListMovies.forEach(movie => {
+        movie.addEventListener('click', async () => {
+            searchList.classList.add('hide-list');
+            searchInput.value = "";
+            const res = await axios.get(`http://www.omdbapi.com/?i=${movie.dataset.id}&apikey=${apiKey}`);
+            showMovieDetails(res);
 
-                    .then(function(data){
+        });
+    });
+}
 
-                    //Rotten Tomatoes
-                    let rotten= data.rottenTomatoes
-                    document.getElementById("rotten").innerHTML = "Rotten Tomatoes: "+ rotten + "%"
-                    })
-        })
+function showMovieDetails(res) {
+    const data = res.data
+    searchResult.removeAttribute("style");
+    searchResult.innerHTML = `
+    <div class = "movie-poster">
+        <img src = "${(data.Poster != "N/A") ? data.Poster : "image_not_found.png"}" alt = "movie poster">
+    </div>
+    <div class = "movie-info">
+        <h3 class = "movie-title">${data.Title}</h3>
+        <p class = "year"><br>Year:&nbsp${data.Year}</p>
+        <p class = "rated"><br>Rating:&nbsp${data.Rated}</p>
+        <p class = "released"><br>Released:&nbsp${data.Released}</p>
+        <p class = "genre"><br>Genre:&nbsp${data.Genre}</p>
+        <p class = "writer"><br>Writer:&nbsp${data.Writer}</p>
+        <p class = "actors"><br>Actors:&nbsp${data.Actors}</p>
+        <p class = "plot"><br>Plot:&nbsp${data.Plot}</p>
+        <p class = "language"><br>Language:&nbsp${data.Language}</p>
+    </div>
+    `;
 }
 /*var movieList =[]
 var searchHistoryList = $('#search-history-list');
