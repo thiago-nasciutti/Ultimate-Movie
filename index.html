@@ -5,9 +5,8 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <script src="https://kit.fontawesome.com/258cb34eee.js" crossorigin="anonymous"></script>
-    <!-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css"> -->
-    <link rel="stylesheet" href="style/style.css">
+    <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32.png">
+    <link rel="stylesheet" href="assets/css/stylesheet.css">
     <title>Search Your Movies</title>
 </head>
 
@@ -45,47 +44,41 @@
 
                     <!--Search List-->
                     <div class="search-list" id="search-list">
-                        <!-- <div class="search-list-item">
+                        <div class="search-list-item" style="display:none">
                             <div class="search-item-thumbnail">
                                 <img id="thumbnail" src="images/dreamstime_xs_95500226.jpg">
                             </div>
                             <div class="search-item-info">
-                                <h3></h3>
-                                <p></p>
+                                <h3 class="search-item-title"></h3>
+                                <p lass="search-item-year"></p>
                             </div>
-                        </div> -->
-
+                        </div>
                     </div>
                 </div>
             </div>
 
             <div class="container">
-                <div class="result-container">
-                    <div class="result" id="result" style="display:none">
-                        <div class="movie-poster">
-                            <img src="images/dreamstime_xs_95500226.jpg">
-                        </div>
-                        <div class="movie-info">
-                            <h3 class="movie-title"></h3>
-                            <br>
-                            <br>
-                            <p id="year"></p>
-                            <p class="rating"> </p>
-                            <p class="release"></p>
-                            <p class="genre"><b></b></p>
-                            <p class="writer"><b></b></p>
-                            <p class="actors"><b></b></p>
-                            <p class="plot"><b></b></p>
-                            <p class="language"><b></b></p>
-                        </div>
+                <div class="result-container" id="result" ">
+                    <img src=" images/dreamstime_xs_95500226.jpg" class="movie-poster">
+                    <div class="movie-info">
+                        <h3 class="movie-title">Testing</h3>
+                        <p class="year">Testing</p>
+                        <p class="director">Testing</p>
+                        <p class="genre"><b></b>Testing</p>
+                        <p class="writer"><b></b>Testing</p>
+                        <p class="actors"><b></b>Testing</p>
+                        <p class="awards"><b></b>Testing</p>
+                        <p class="language"><b></b>Testing</p>
+                        <p class="rotten-tomatoes">Rotten Tomatoes:&nbsp<span class="rotten-tomatoes-rating"></span>
+                        </p>
+                        <br>
+                        <p class="plot" id="plot"><b></b>Testing</p>
                     </div>
-                </div>
             </div>
-        </div>
     </section>
 
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
-    <script src="script/script.js"></script>
+    <script src="assets/js/script.js"></script>
 </body>
 
 </html>
