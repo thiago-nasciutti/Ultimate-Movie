@@ -1,6 +1,6 @@
 const searchInput = document.querySelector('.search-input');
 const searchList = document.querySelector('.search-list');
-const searchResult = document.querySelector('.result');
+const searchResult = document.querySelector('#result');
 const apiKey = "eee7f63b";
 
 function movieSearch(movieName) {
@@ -28,11 +28,7 @@ function listMovies(movies) {
         let movieListItem = document.createElement('div');
         movieListItem.dataset.id = movies[i].imdbID;
         movieListItem.classList.add('search-list-item');
-        if (movies[i].Poster != "N/A")
-            moviePoster = movies[i].Poster;
-        else
-            moviePoster = "image_not_found.png";
-
+        moviePoster = movies[i].Poster;
         movieListItem.innerHTML = `
             <div class = "search-item-thumbnail">
                 <img src = "${moviePoster}">
@@ -42,7 +38,6 @@ function listMovies(movies) {
                 <p>${movies[i].Year}</p>
             </div>
             `;
-
         searchList.appendChild(movieListItem);
     }
     loadMovieDetails()
@@ -54,9 +49,12 @@ function loadMovieDetails() {
         movie.addEventListener('click', async () => {
             searchList.classList.add('hide-list');
             searchInput.value = "";
+            //grab data from omdbapi
             const res = await axios.get(`http://www.omdbapi.com/?i=${movie.dataset.id}&apikey=${apiKey}`);
             showMovieDetails(res);
-
+            //pass movie ID from Omdbapi API for IMDb-API
+            showRottenTomatoes(movie.dataset.id)
+            showTrailer(movie.dataset.id)
         });
     });
 }
@@ -64,23 +62,72 @@ function loadMovieDetails() {
 function showMovieDetails(res) {
     const data = res.data
     searchResult.removeAttribute("style");
-    searchResult.innerHTML = `
-    <div class = "movie-poster">
-        <img src = "${(data.Poster != "N/A") ? data.Poster : "image_not_found.png"}" alt = "movie poster">
-    </div>
-    <div class = "movie-info">
-        <h3 class = "movie-title">${data.Title}</h3>
-        <p class = "year"><br>Year:&nbsp${data.Year}</p>
-        <p class = "rated"><br>Rating:&nbsp${data.Rated}</p>
-        <p class = "released"><br>Released:&nbsp${data.Released}</p>
-        <p class = "genre"><br>Genre:&nbsp${data.Genre}</p>
-        <p class = "writer"><br>Writer:&nbsp${data.Writer}</p>
-        <p class = "actors"><br>Actors:&nbsp${data.Actors}</p>
-        <p class = "plot"><br>Plot:&nbsp${data.Plot}</p>
-        <p class = "language"><br>Language:&nbsp${data.Language}</p>
-    </div>
-    `;
-}
+
+    //get movie poster
+    const moviePoster = document.querySelector('.movie-poster');
+    moviePoster.src = data.Poster
+
+    //get movie title
+    const movieTitle = document.querySelector('.movie-title');
+    movieTitle.innerHTML = data.Title
+
+    //get movie year
+    const MovieYear = document.querySelector('.year');
+    MovieYear.innerHTML = `Year:&nbsp${data.Year}`
+
+    //get director
+    const director = document.querySelector('.director');
+    director.innerHTML = `Director:&nbsp${data.Director}`
+
+    //get movie genre
+    const genre = document.querySelector('.genre');
+    genre.innerHTML = `Genre:&nbsp${data.Genre}`
+
+    //get writer
+    const writer = document.querySelector('.writer');
+    writer.innerHTML = `Writer(s):&nbsp${data.Writer}`
+
+    //get actors
+    const actors = document.querySelector('.actors');
+    actors.innerHTML = `Actors:&nbsp${data.Actors}`
+
+    //get nomination
+    const awards = document.querySelector('.awards');
+    awards.innerHTML = `Award(s):&nbsp${data.Awards}`
+
+    //get language
+    const language = document.querySelector('.language');
+    language.innerHTML = `Language(s):&nbsp${data.Language}`
+
+    //get plot
+    const plot = document.querySelector('.plot');
+    plot.innerHTML = `Plot:&nbsp${data.Plot}`
+};
+
+//grab info from IMDb-API for rotten tomatoes and trailers
+function showRottenTomatoes(movieID) {
+    const imdbApi = 'k_vezs1v7k'
+    const rottenTomatoesURL = `https://imdb-api.com/en/API/Ratings/${imdbApi}/${movieID}`
+    axios.get(rottenTomatoesURL)
+        .then(res => {
+            //get rotten tomatoes
+            const rating = res.data.rottenTomatoes;
+            const rottenTomatoesRating = document.querySelector('.rotten-tomatoes-rating')
+            rottenTomatoesRating.innerHTML = rating;
+            if (rating > 60) {
+                rottenTomatoesRating.style.backgroundColor = 'red'
+            }
+            else if (!rating) {
+                rottenTomatoesRating.style.backgroundColor = 'transparent'
+                rottenTomatoesRating.innerHTML = 'N/A'
+            }
+            else {
+                rottenTomatoesRating.style.backgroundColor = 'green'
+            }
+
+        })
+};
+
 /*var movieList =[]
 var searchHistoryList = $('#search-history-list');
 var searchmovieInput = $("#search-movie");
