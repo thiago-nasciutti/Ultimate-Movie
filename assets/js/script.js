@@ -160,39 +160,3 @@ ClearHistoryBtn.onclick = () => {
     displayHistory()
 }
 
-
-
-
-// var searchHistory = JSON.parse(localStorage.getItem("searchHistory"));
-// if (searchHistory == null) {
-//     searchHistory = [];
-//     localStorage.setItem("searchHistory", JSON.stringify(searchHistory));
-// }
-// function storeHistory(name) {
-//     if (name == "") {
-//         return;
-//     }
-//     for (var i = 0; i < searchHistory.length; i++) {
-//         if (name === searchHistory[i]) {
-//             return;
-//         }
-//     }
-//     searchHistory.push(name);
-//     localStorage.setItem("searchHistory", JSON.stringify(searchHistory));
-
-// }
-
-
-// // load user local storage under search input
-// function renderHistory() {
-//     var historyArray = JSON.parse(localStorage.getItem("searchHistory"));
-//     $("#search-history-container").text("");
-//     for (var i = 0; i < historyArray.length; i++) {
-//         var itemAdded = $('<button>');
-//         itemAdded.addClass("history-button");
-//         itemAdded.text(historyArray[i]);
-//         $("#search-history-container").append(itemAdded);
-//     }
-// }
-
-// renderHistory();
