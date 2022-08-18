@@ -6,7 +6,9 @@
         <meta charset="UTF-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="32x32">
+        <!-- Materialize Framework - CSS Link -->
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css"> 
         <!-- CSS Link -->
         <link rel="stylesheet" href="assets/css/style.css">
         <!-- Title -->
@@ -41,47 +43,55 @@
         <!-- Section 2: Search & Results -->
         <section class="search-page" id="section2">
             <div class="wrapper">
-                <div class="search-container">
-                    <div class="search-element">
-                        <!-- Animated Logo Sign: Movies -->
-                        <div class="logo"><span id="letter-m">M</span><span id="letter-o">o</span><span
-                                id="letter-v">v</span><span id="letter-i">i</span><span id="letter-e">e</span><span
-                                id="letter-s">s</span></div>
-                        <!-- Search Input -->
-                        <div>
-                            <input type="text" class="search-input" id="search-input" placeholder="Search Movie Title ..."
-                                id="movie-search-box" onkeyup="movieSearchProgress()" onclick="movieSearchProgress()">
-                        </div>
+                <!-- Search Section -->
+                    <div class="search-container">
+                        <div class="search-element">
+                            <!-- Animated Logo Sign: Movies -->
+                                <div class="logo">
+                                    <span id="letter-m">M</span><span id="letter-o">o</span><span id="letter-v">v</span><span id="letter-i">i</span><span id="letter-e">e</span><span id="letter-s">s</span>
+                                </div>
+                            <!-- Search Input -->
+                            <div>
+                                <input type="text" class="search-input white" id="search-input" placeholder="Search Movie Title ..." id="movie-search-box" onkeyup="movieSearchProgress()" onclick="movieSearchProgress()">
+                            </div>
 
-                        <!-- Search Lis t-->
-                        <div class="search-list" id="search-list">
-                            <div class="search-list-item" style="display:none"></div>
+                            <!-- Search List-->
+                            <div class="search-list" id="search-list">
+                                <div class="search-list-item" style="display:none"></div>
+                            </div>
                         </div>
                     </div>
-                </div>
 
                 <!-- Show Movie Details -->
-                <div class="container">
-                    <div class="result-container" id="result" style="display:none">
-                        <img class="movie-poster">
-                        <div class="movie-info">
-                            <h3 class="movie-title"></h3>
-                            <p class="year"></p>
-                            <p class="director"></p>
-                            <p class="genre"><b></b></p>
-                            <p class="writer"><b></b></p>
-                            <p class="actors"><b></b></p>
-                            <p class="awards"><b></b></p>
-                            <p class="language"><b></b></p>
-                            <p class="rotten-tomatoes">Rotten Tomatoes:&nbsp<span class="rotten-tomatoes-rating"></span></p>
-                            <br>
-                            <p class="plot" id="plot"><b></b></p>
+                    <div class="container">
+                        <div class="result-container" id="result" style="display:none">
+                            <img class="movie-poster">
+                            <div class="movie-info">
+                                <h3 class="movie-title amber-text text-darken-4"></h3>
+                                <p class="year white-text"></p>
+                                <p class="director white-text"></p>
+                                <p class="genre white-text"></p>
+                                <p class="writer white-text"></p>
+                                <p class="actors white-text"></p>
+                                <p class="awards white-text"></p>
+                                <p class="language white-text"></p>
+                                <p class="rotten-tomatoes white-text">Rotten Tomatoes:&nbsp<span class="rotten-tomatoes-rating"></span></p>
+                                <br>
+                                <p class="plot" id="plot"></p>
+                            </div> 
                         </div>
-                </div>
+                    </div>
+            </div>
+
+            
+
         </section>
 
         <!-- Axios CDN -->
         <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+
+        <!-- Materialize Framework - JS Link -->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script> 
 
         <!-- JS Source -->
         <script src="assets/js/script.js"></script>

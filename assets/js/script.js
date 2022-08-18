@@ -5,11 +5,12 @@
 
 //First API: OMDB - for movie details
 
-    //API Key
+    //OMDB Key
         const apiKey = "eee7f63b";
 
     //Movie Search
         function movieSearch(movieName) {
+            //OMDB Link
             const queryURL = `https://omdbapi.com/?s=${movieName}&page=1&apikey=${apiKey}`
             axios.get(queryURL)
                 .then(res => {
@@ -114,26 +115,30 @@
         };
 
 //Second API: IMDb - Rotten Tomatoes Ratings
-
-    function showRottenTomatoes(movieID) {
+    //IMDb Key
         const imdbApi = 'k_vezs1v7k'
-        const rottenTomatoesURL = `https://imdb-api.com/en/API/Ratings/${imdbApi}/${movieID}`
-        axios.get(rottenTomatoesURL)
-            .then(res => {
-                //get rotten tomatoes
-                const rating = res.data.rottenTomatoes;
-                const rottenTomatoesRating = document.querySelector('.rotten-tomatoes-rating')
-                rottenTomatoesRating.innerHTML = rating;
-                if (rating > 60) {
-                    rottenTomatoesRating.style.backgroundColor = 'red'
-                }
-                else if (!rating) {
-                    rottenTomatoesRating.style.backgroundColor = 'transparent'
-                    rottenTomatoesRating.innerHTML = 'N/A'
-                }
-                else {
-                    rottenTomatoesRating.style.backgroundColor = 'green'
-                }
-        })
-        .catch(error => { error })
+    
+    //Rotten Tomatoes Results    
+        function showRottenTomatoes(movieID) {
+    
+        //IMDb Link
+            const rottenTomatoesURL = `https://imdb-api.com/en/API/Ratings/${imdbApi}/${movieID}`
+            axios.get(rottenTomatoesURL)
+                .then(res => {
+                    //get rotten tomatoes
+                    const rating = res.data.rottenTomatoes;
+                    const rottenTomatoesRating = document.querySelector('.rotten-tomatoes-rating')
+                    rottenTomatoesRating.innerHTML = rating;
+                    if (rating > 60) {
+                        rottenTomatoesRating.style.backgroundColor = 'green'
+                    }
+                    else if (!rating) {
+                        rottenTomatoesRating.style.backgroundColor = 'transparent'
+                        rottenTomatoesRating.innerHTML = 'N/A'
+                    }
+                    else {
+                        rottenTomatoesRating.style.backgroundColor = 'red'
+                    }
+            })
+            .catch(error => { error })
     };
