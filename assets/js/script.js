@@ -14,7 +14,7 @@ function movieSearch(searchTerm) {
         })
         .catch(error => { error })
 };
-
+// creates a list to be populated as the user types the search input
 function movieSearchProgress() {
     let searchTerm = (searchInput.value).trim();
     if (searchTerm.length > 0) {
@@ -24,7 +24,7 @@ function movieSearchProgress() {
         searchList.classList.add('hide-list');
     };
 };
-
+// populates the list with suggested movies with their title, year, and trailer
 function listMovies(movies) {
     searchList.innerHTML = "";
     for (let result of movies) {
@@ -65,7 +65,7 @@ function loadMovieDetails() {
         });
     });
 }
-
+// renders elements of the API call on the page under specific headings
 function showMovieDetails(res) {
     const data = res.data
     searchResult.removeAttribute("style");
@@ -137,6 +137,7 @@ function showRottenTomatoes(movieID) {
         })
 };
 
+// checks for items in localstorage and renders elements on the page
 function displayHistory(searchValue) {
     historyElement.removeAttribute('style')
     const historyText = document.querySelector('.history-element');
@@ -153,7 +154,7 @@ function displayHistory(searchValue) {
         historyText.append(historyItem);
     }
 }
-
+// clears localstorage of all values
 ClearHistoryBtn.onclick = () => {
     localStorage.clear();
     dataArr = []
