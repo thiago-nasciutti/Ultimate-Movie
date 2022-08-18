@@ -1,8 +1,12 @@
-###  The URL of the Deployed Application:
+## Project Title: 
+
+# Ultimate Movies
 
 
-## Project Title: UltimateMovie
-
+##  The URL of the Deployed Application:
+```
+  http://www.ultimatemovie.group9.ca/
+```
 
 ## Project Description:
 
