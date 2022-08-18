@@ -4,7 +4,7 @@ const searchResult = document.querySelector('#result');
 const ClearHistoryBtn = document.querySelector('.clear-history-btn')
 const historyElement = document.querySelector('.history-element')
 const OmdApiKey = "db0da826";
-const imdbApiKEy = 'k_vezs1v7k';
+const imdbApiKEy = 'k_bwduzyr8';
 
 function movieSearch(searchTerm) {
     const queryURL = `https://omdbapi.com/?s=${searchTerm}&page=1&apikey=${OmdApiKey}`
