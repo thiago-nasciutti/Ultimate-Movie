@@ -77,9 +77,6 @@ Press Enter to create your local clone.
 
 ![HomePage](./assets/images/Movieapp-demo.gif)
 
-## Link:
-
-The URL of the GitHub repository .....
 
 
 © 2022 Team work Solution Sevices, Inc.
