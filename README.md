@@ -5,7 +5,7 @@
 
 ##  The URL of the Deployed Application:
 ```
-  http://www.ultimatemovie.group9.ca/
+  https://borthvader.github.io/crispy-memory/
 ```
 
 ## Project Description:
