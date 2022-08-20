@@ -83,7 +83,7 @@ Press Enter to create your local clone.
 Link for your review:
 
 * The URL of the GitHub repository. 
-https://github.com/asrabilal/crispy-memory.git
+https://github.com/borthvader/crispy-memory.git
 
 
 © 2022 Team work Solution Sevices, Inc.
