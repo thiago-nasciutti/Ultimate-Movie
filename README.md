@@ -66,16 +66,17 @@ Press Enter to create your local clone.
 ```
 ## Screenshots:
 
-![homepage](./assets/images/homepage.png)
-![Secondpage-Searchbar](./assets/images/secondpage%5BSearch%20bar%5D.png)
-![ScrollDownOption](./assets/images/ScrollDown%20option.png)
-![Searchresult](./assets/images/SearchResult.png)
+![Home Page](./assets/images/home_pg.png)
+![Search Page](./assets/images/search_pg.png)
+![Search Scroll Down Option](./assets/images/search_scrl.png)
+![Search Result](./assets/images/search__result.png)
+![Search History](./assets/images/history_lclstg.png)
 
 
 
 ## Demo:
 
-![HomePage](./assets/images/Movieapp-demo.gif)
+![HomePage](./assets/images/demo.gif)
 
 
 
