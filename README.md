@@ -78,6 +78,12 @@ Press Enter to create your local clone.
 
 ![HomePage](./assets/images/demo.gif)
 
+# Links
+
+Link for your review:
+
+* The URL of the GitHub repository. 
+https://github.com/asrabilal/crispy-memory.git
 
 
 © 2022 Team work Solution Sevices, Inc.
